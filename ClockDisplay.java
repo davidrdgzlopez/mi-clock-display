@@ -29,4 +29,11 @@ public class ClockDisplay
         hours.setValue(newHour);
         minutes.setValue(newMinute);
     }
+    
+    // Set a new hour
+    public void setTime(int actualHour, int actualMinutes)
+    {
+        hours.setValue(actualHour);
+        minutes.setValue(actualMinutes);
+    }
 }
