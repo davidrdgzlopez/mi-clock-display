@@ -46,4 +46,14 @@ public class ClockDisplay
         //displayString = hours.getDisplayValue() + ":" + minutes.getDisplayValue();
         return displayString;
     }
+    
+        // Método que aumenta en un minuto la hora
+    public void timeTick()
+    {
+        minutes.increment();
+        if(minutes.getValue() == 0)
+        {
+            hours.increment();
+        }
+    }
 }
