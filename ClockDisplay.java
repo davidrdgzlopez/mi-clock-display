@@ -36,4 +36,14 @@ public class ClockDisplay
         hours.setValue(actualHour);
         minutes.setValue(actualMinutes);
     }
+    
+    /**
+     * Devuelve una cadena de 5 caracteres con la hora y 
+     * los minutos separados por dos puntos
+     */
+    public String getTime()
+    {
+        //displayString = hours.getDisplayValue() + ":" + minutes.getDisplayValue();
+        return displayString;
+    }
 }
