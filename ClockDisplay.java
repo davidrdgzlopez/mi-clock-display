@@ -19,6 +19,7 @@ public class ClockDisplay
     {
         hours = new NumberDisplay (24);
         minutes = new NumberDisplay (60);
+        updateDisplay() ;
     }
     
     //Constructor which set up the time to x:y
@@ -28,6 +29,7 @@ public class ClockDisplay
         minutes = new NumberDisplay (60);
         hours.setValue(newHour);
         minutes.setValue(newMinute);
+        updateDisplay() ;
     }
     
     // Set a new hour
@@ -35,6 +37,8 @@ public class ClockDisplay
     {
         hours.setValue(actualHour);
         minutes.setValue(actualMinutes);
+        updateDisplay() ;
+        updateDisplay() ;
     }
     
     /**
@@ -54,6 +58,30 @@ public class ClockDisplay
         if(minutes.getValue() == 0)
         {
             hours.increment();
+        }
+        updateDisplay() ;
+    }
+    
+        //Actualiza el atributo displayString
+    private void updateDisplay()
+    {
+        if (hours.getValue() > 12 && hours.getValue() < 24)
+        {
+            int newHourTwelve;
+            newHourTwelve = hours.getValue() -12;
+            displayString = newHourTwelve + ":" + minutes.getDisplayValue()+ " pm";
+        }
+        else if(hours.getValue() == 12)
+        {
+            displayString = hours.getDisplayValue() + ":" + minutes.getDisplayValue()+ " pm";
+        }
+        else if (hours.getValue() ==0)
+        {
+            displayString = hours.getDisplayValue() + ":" + minutes.getDisplayValue()+ " am";
+        }
+        else 
+        {
+            displayString = hours.getDisplayValue() + ":" + minutes.getDisplayValue()+ " am";
         }
     }
 }
