@@ -21,4 +21,15 @@ public class NumberDisplay
         limit = theFuckingLimit;
         value = 0;
     }
+    
+    /**
+     * This allow you to change the value 
+     */
+    public void setValue(int newValue)
+    {
+        if((newValue>=0) && (newValue<limit))
+        {
+            value = newValue;
+        }
+    }
 }
