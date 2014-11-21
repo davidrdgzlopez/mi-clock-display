@@ -20,4 +20,13 @@ public class ClockDisplay
         hours = new NumberDisplay (24);
         minutes = new NumberDisplay (60);
     }
+    
+    //Constructor which set up the time to x:y
+    public ClockDisplay(int newHour, int newMinute)
+    {
+        hours = new NumberDisplay(24);
+        minutes = new NumberDisplay (60);
+        hours.setValue(newHour);
+        minutes.setValue(newMinute);
+    }
 }
