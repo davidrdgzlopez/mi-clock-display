@@ -32,4 +32,12 @@ public class NumberDisplay
             value = newValue;
         }
     }
+    
+    /**
+     * This show you the value
+     */
+    public int getValue()
+    {
+        return value;
+    }
 }
