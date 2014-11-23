@@ -38,18 +38,37 @@ public class ClockDisplay
         minutes.setValue(newMinute);
         day = new NumberDisplay (31);
         month = new NumberDisplay (13);
-        year = new NumberDisplay (99);
+        year = new NumberDisplay (100);
         day.setValue(newDay);
+        if(day.getValue()== 0)
+        {
+            day.setValue(1);
+        }
         month.setValue(newMonth);
+        if(month.getValue() == 0)
+        {
+            month.setValue(1);
+        }
         year.setValue(newYear);
         updateDisplay();
     }
     
     // Set a new hour
-    public void setTime(int actualHour, int actualMinutes)
+    public void setTime(int actualHour, int actualMinutes, int actualDay, int actualMonth, int actualYear)
     {
         hours.setValue(actualHour);
         minutes.setValue(actualMinutes);
+        day.setValue(actualDay);
+        if(day.getValue()== 0)
+        {
+            day.setValue(1);
+        }
+        month.setValue(actualMonth);
+        if(month.getValue() == 0)
+        {
+            month.setValue(1);
+        }
+        year.setValue(actualYear);
         updateDisplay() ;
     }
     
@@ -70,8 +89,25 @@ public class ClockDisplay
         if(minutes.getValue() == 0)
         {
             hours.increment();
+            if (hours.getValue() == 0)
+            {
+                day.increment();
+                day.setValue(1);
+                if (day.getValue() == 1)
+                {
+                    month.increment();
+                    if(month.getValue()== 0)
+                    {
+                        month.setValue(1);
+                        if (month.getValue() == 1)
+                        {
+                            year.increment();
+                        }
+                    }
+                }
+            }
         }
-        updateDisplay() ;
+        updateDisplay();
     }
     
         //Actualiza el atributo displayString
